@@ -1,1 +1,1 @@
-web: gunicorn app:bmi
+web: gunicorn app:app
