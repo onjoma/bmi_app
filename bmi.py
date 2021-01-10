@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
@@ -12,6 +12,7 @@ def bmi_calculate():
         h = float(request.form.get('height'))
         bmi = round(w / ((h/100)**2),2)
     return render_template('index.html', bmi=bmi)
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
