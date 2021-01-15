@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
-
 def bmi_calculate():
 
     bmi = ""
@@ -12,6 +11,7 @@ def bmi_calculate():
         h = float(request.form.get('height'))
         bmi = round(w / ((h/100)**2),2)
     return render_template('index.html', bmi=bmi)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
