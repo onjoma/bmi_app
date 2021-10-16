@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;;
 }
 
 .main-container {
@@ -48,7 +48,7 @@ label {
     font-weight: bold;
 }
 
-mark {
+span {
     font-weight: bold;
     text-decoration:underline;
     padding: 5px;

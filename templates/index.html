@@ -5,17 +5,20 @@
     <div class="bmi-form">
         <form action="/" method="post">
             <div class="form group">
-                <label for="weight">Weight In Kg</label><br>
+                <label for="weight">Weight in (Kg)</label><br>
                 <input type="text" name="weight" required>
             </div>
             <div class="form group">
-                <label for="height">Height In cm</label><br>
+                <label for="height">Height in (cm)</label><br>
                 <input type="text" name="height" required>
             </div>
             <div class="form group">
                 <button class="btn" type="submit" name="submit">Calculate BMI</button>
             </div>
-            <p>Your BMI is <mark>{{bmi}}</mark> </p>
+
+            {% if bmi %}
+                <p>Your BMI is :  <span>{{bmi}}</span> </p>
+            {% endif %}
         </form>
     </div>
 
