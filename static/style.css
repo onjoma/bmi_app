@@ -1,12 +1,22 @@
 :root {
   --mainBackgroundColor: #48426d;
   --secondaryBackgroundColor: #dfe0df;
+  --font-family: "Roboto Mono", monospace;
+  --bg-color: #f9f9f9;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family);
+  background: var(--bg-color);
 }
 
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline 1px solid;
+  text-underline-offset: 2px;
+}
 .main-container {
   width: 100%;
   max-width: 600px;
@@ -26,12 +36,8 @@ body {
 h1,
 h2,
 h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #000;
-}
-
-h3 {
-  font-size: 1.2rem;
 }
 
 .danger {
@@ -45,10 +51,12 @@ h3 {
 }
 
 input {
-  padding: 0.3rem;
+  padding: 0.1rem;
   margin-bottom: 15px;
   margin-top: 2px;
   font-size: 1rem;
+  font-family: var(--font-family);
+  width: 60%;
 }
 
 input:focus {

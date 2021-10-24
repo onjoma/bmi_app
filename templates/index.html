@@ -29,13 +29,13 @@ applies to both adult men and women.</p>
         <div>
             {% if bmi %}
                 {% if bmi < 18.5 %}
-                    <p class="warning">Your BMI is : <span>{{bmi}}  </span> - Underweight </p>
+                    <p class="warning">Your BMI is : <span>{{bmi}}</span> Underweight </p>
                 {% elif bmi == 18.5 or bmi <= 24.9 %}
-                    <p class="success">Your BMI is : <span>{{bmi}} </span> - Normal weight </p>
+                    <p class="success">Your BMI is : <span>{{bmi}}</span> Normal weight </p>
                 {% elif bmi == 25 or bmi <= 29.9 %}
-                    <p class="danger">Your BMI is : <span>{{bmi}} </span> - Overweight </p>
+                    <p class="danger">Your BMI is : <span>{{bmi}}</span> Overweight </p>
                 {% else %}
-                    <p class="danger">Your BMI is : <span>{{bmi}} </span> - Obese </p>
+                    <p class="danger">Your BMI is : <span>{{bmi}}</span> Obese </p>
                 {% endif %}
             {% endif %}
         </div>
@@ -68,5 +68,5 @@ applies to both adult men and women.</p>
         </table>
     </div>
 </div>
-<a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank">read more on BMI</a>
+<a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank">Read more on BMI</a>
 {% endblock %}
