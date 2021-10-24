@@ -26,9 +26,11 @@ applies to both adult men and women.</p>
                 <button class="btn" type="submit" name="submit">Calculate BMI</button>
             </div>
         </form>
-        {% if bmi %}
-            <p>Your BMI is : <span>{{bmi}}</span> </p>
-        {% endif %}
+        <div>
+            {% if bmi %}
+                <p>Your BMI is : <span>{{bmi}}</span> </p>
+            {% endif %}
+        </div>
     </div>
     <div class="bmi-table">
         <h3>BMI Table</h3>
