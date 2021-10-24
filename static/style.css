@@ -34,6 +34,16 @@ h3 {
   font-size: 1.2rem;
 }
 
+.danger {
+  color: #ff0000;
+}
+.success {
+  color: #008000;
+}
+.warning {
+  color: #ffc107;
+}
+
 input {
   padding: 0.3rem;
   margin-bottom: 15px;
@@ -53,9 +63,9 @@ input:focus {
   cursor: pointer;
 }
 
-.btn:hover{
-    text-decoration: underline 2px solid #fff;
-    text-underline-offset: 2px;
+.btn:hover {
+  text-decoration: underline 2px solid #fff;
+  text-underline-offset: 2px;
 }
 
 label {
@@ -85,14 +95,14 @@ td {
   margin-bottom: 1px;
 }
 
-
 /* Mobile */
-@media (max-width: 768px){
-    .inner-container {
-        flex-direction: column;
-    }
+@media (max-width: 768px) {
+  .inner-container {
+    flex-direction: column;
+  }
 
-    .bmi-table, .bmi-form {
+  .bmi-table,
+  .bmi-form {
     padding-top: 30px;
-    }
+  }
 }
