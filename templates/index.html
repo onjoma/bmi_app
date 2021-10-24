@@ -28,6 +28,7 @@ applies to both adult men and women.</p>
         </form>
         <div>
             {% if bmi %}
+            {% if bmi  %}
                 <p>Your BMI is : <span>{{bmi}}</span> </p>
             {% endif %}
         </div>
@@ -42,19 +43,19 @@ applies to both adult men and women.</p>
                 </tr>
                 <tr>
                     <td>Underweight</td>
-                    <td>= &lt;18.5</td>
+                    <td> &lt;18.5</td>
                 </tr>
                 <tr>
                     <td>Normal weight</td>
-                    <td>= 18.5–24.9</td>
+                    <td> 18.5–24.9</td>
                 </tr>
                 <tr>
                     <td>Overweight </td>
-                    <td>= 25–29.9</td>
+                    <td> 25–29.9</td>
                 </tr>
                 <tr>
                     <td>Obesity </td>
-                    <td>= BMI of 30 or greater</td>
+                    <td> BMI of 30 or greater</td>
                 </tr>
             </tbody>
         </table>
