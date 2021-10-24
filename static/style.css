@@ -1,55 +1,98 @@
 :root {
-    --mainBackgroundColor:#48426d;
-    --secondaryBackgroundColor: #dfe0df;
+  --mainBackgroundColor: #48426d;
+  --secondaryBackgroundColor: #dfe0df;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-container {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    font-size: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  font-size: 16px;
 }
 
-.bmi-form {
-    background-color: var(--secondaryBackgroundColor);
-    padding: 30px 20px;
+.inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondaryBackgroundColor);
+  padding: 0 15px;
+  margin-bottom: 1rem;
 }
 
-h1, h2, h3 {
-    font-size: 1rem;
-    background-color: purple;
-    color: #fff;
-    padding: .5rem;
+h1,
+h2,
+h3 {
+  font-size: 1.2rem;
+  color: #000;
 }
 
 h3 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 input {
-    padding: .5rem;
-    margin-bottom: 15px;
-    margin-top: 2px;
+  padding: 0.3rem;
+  margin-bottom: 15px;
+  margin-top: 2px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
 }
 
 .btn {
-    background-color: purple;
-    color: #fff;
-    border: none;
-    padding: 10px;
+  background-color: purple;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
 
+.btn:hover{
+    text-decoration: underline 2px solid #fff;
+    text-underline-offset: 2px;
 }
 
 label {
-    font-weight: bold;
+  font-weight: 300;
 }
 
 span {
-    font-weight: bold;
-    text-decoration:underline;
-    padding: 5px;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 5px;
+}
+
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  text-align: left;
+  padding: 0.2rem;
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+.bmi-table h3 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+
+/* Mobile */
+@media (max-width: 768px){
+    .inner-container {
+        flex-direction: column;
+    }
+
+    .bmi-table, .bmi-form {
+    padding-top: 30px;
+    }
 }

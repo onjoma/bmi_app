@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Calculate Your Body Mass Index (BMI)</h1>
+
+<h1>Body Mass Index (BMI)</h1>
+<p>Body Mass Index (BMI) is derived from weight and height measurement of a person. it is used to measure body fat and
+applies to both adult men and women.</p>
+<p>BMI is used to categorized a person as <i>underweight</i>, <i>normal weight</i>, <i>overweight</i>, or <i>obese</i>
+    based on tissue mass (fat) and height.</p>
+<p>The tool below will help you know your BMI. Simply enter yur weight in (kg) and height in (cm) and then click
+    <mark>Calculate BMI</mark> button. Your BMI results will be shown below.</p>
+
+<h3>Calculate Your Body Mass Index (BMI)</h3>
+<div class="inner-container">
     <div class="bmi-form">
         <form action="/" method="post">
             <div class="form group">
@@ -15,12 +25,38 @@
             <div class="form group">
                 <button class="btn" type="submit" name="submit">Calculate BMI</button>
             </div>
-
-            {% if bmi %}
-                <p>Your BMI is :  <span>{{bmi}}</span> </p>
-            {% endif %}
         </form>
+        {% if bmi %}
+            <p>Your BMI is : <span>{{bmi}}</span> </p>
+        {% endif %}
     </div>
-
-
+    <div class="bmi-table">
+        <h3>BMI Table</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Category</th>
+                    <th>BMI(Kg/M<sup>2</sup>)</th>
+                </tr>
+                <tr>
+                    <td>Underweight</td>
+                    <td>= &lt;18.5</td>
+                </tr>
+                <tr>
+                    <td>Normal weight</td>
+                    <td>= 18.5–24.9</td>
+                </tr>
+                <tr>
+                    <td>Overweight </td>
+                    <td>= 25–29.9</td>
+                </tr>
+                <tr>
+                    <td>Obesity </td>
+                    <td>= BMI of 30 or greater</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank">read more on BMI</a>
 {% endblock %}
