@@ -26,11 +26,12 @@ a:hover {
 
 .inner-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   background-color: var(--secondaryBackgroundColor);
-  padding: 0 15px;
+  padding: 15px 15px;
   margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 h1,
@@ -42,12 +43,27 @@ h3 {
 
 .danger {
   color: #ff0000;
+  font-weight: 600;
+  background-color: #FFF0F0;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #ff0000;
 }
 .success {
   color: #008000;
+  font-weight: 600;
+  background-color: #F0FFF0;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #008000;
 }
 .warning {
-  color: #ffc107;
+  color: #FF6B00;
+  font-weight: 600;
+  background-color: #FFF3E0;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #FF6B00;
 }
 
 input {
@@ -61,6 +77,14 @@ input {
 
 input:focus {
   outline: none;
+}
+
+.form.group {
+  margin-bottom: 15px;
+}
+
+.form.group:last-child {
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -101,6 +125,10 @@ td {
 .bmi-table h3 {
   text-align: center;
   margin-bottom: 1px;
+}
+
+.bmi-form {
+  padding-bottom: 15px;
 }
 
 /* Mobile */

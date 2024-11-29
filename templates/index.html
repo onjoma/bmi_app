@@ -3,11 +3,11 @@
 {% block content %}
 
 <h1>Body Mass Index (BMI)</h1>
-<p>Body Mass Index (BMI) is derived from weight and height measurement of a person. it is used to measure body fat and
+<p>Body Mass Index (BMI) is derived from weight and height measurement of a person. It is used to measure body fat and
 applies to both adult men and women.</p>
-<p>BMI is used to categorized a person as <i>underweight</i>, <i>normal weight</i>, <i>overweight</i>, or <i>obese</i>
+<p>BMI is used to categorize a person as <i>underweight</i>, <i>normal weight</i>, <i>overweight</i>, or <i>obese</i>
     based on tissue mass (fat) and height.</p>
-<p>The tool below will help you know your BMI. Simply enter yur weight in (kg) and height in (cm) and then click
+<p>The tool below will help you know your BMI. Simply enter your weight in pounds (lbs) and height in feet and inches, then click
     <mark>Calculate BMI</mark> button. Your BMI results will be shown below.</p>
 
 <h3>Calculate Your Body Mass Index (BMI)</h3>
@@ -15,12 +15,16 @@ applies to both adult men and women.</p>
     <div class="bmi-form">
         <form action="/" method="post">
             <div class="form group">
-                <label for="weight">Weight in (Kg)</label><br>
+                <label for="weight">Weight (lbs)</label><br>
                 <input type="text" name="weight" required>
             </div>
             <div class="form group">
-                <label for="height">Height in (cm)</label><br>
-                <input type="text" name="height" required>
+                <label for="feet">Height (feet)</label><br>
+                <input type="number" name="feet" min="0" max="8" required>
+            </div>
+            <div class="form group">
+                <label for="inches">Height (inches)</label><br>
+                <input type="number" name="inches" min="0" max="11" required>
             </div>
             <div class="form group">
                 <button class="btn" type="submit" name="submit">Calculate BMI</button>
@@ -41,32 +45,32 @@ applies to both adult men and women.</p>
         </div>
     </div>
     <div class="bmi-table">
-        <h3>BMI Table</h3>
+        <h3>BMI Categories</h3>
         <table>
             <tbody>
                 <tr>
                     <th>Category</th>
-                    <th>BMI(Kg/M<sup>2</sup>)</th>
+                    <th>BMI Range</th>
                 </tr>
                 <tr>
                     <td>Underweight</td>
-                    <td> &lt;18.5</td>
+                    <td>Below 18.5</td>
                 </tr>
                 <tr>
                     <td>Normal weight</td>
-                    <td> 18.5–24.9</td>
+                    <td>18.5 - 24.9</td>
                 </tr>
                 <tr>
-                    <td>Overweight </td>
-                    <td> 25–29.9</td>
+                    <td>Overweight</td>
+                    <td>25.0 - 29.9</td>
                 </tr>
                 <tr>
-                    <td>Obesity </td>
-                    <td> BMI of 30 or greater</td>
+                    <td>Obese</td>
+                    <td>30.0 or greater</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank">Read more on BMI</a>
+
 {% endblock %}
