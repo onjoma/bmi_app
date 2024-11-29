@@ -88,16 +88,40 @@ input:focus {
 }
 
 .btn {
-  background-color: purple;
-  color: #fff;
   border: none;
-  padding: 10px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
 }
 
-.btn:hover {
-  text-decoration: underline 2px solid #fff;
-  text-underline-offset: 2px;
+.btn-calculate {
+  background-color: #6B21A8;
+  color: #fff;
+}
+
+.btn-calculate:hover {
+  background-color: #581C87;
+  transform: translateY(-1px);
+}
+
+.btn-reset {
+  background-color: #EF4444;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.btn-reset:hover {
+  background-color: #DC2626;
+  transform: translateY(-1px);
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 label {

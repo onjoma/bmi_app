@@ -16,18 +16,19 @@ applies to both adult men and women.</p>
         <form action="/" method="post">
             <div class="form group">
                 <label for="weight">Weight (lbs)</label><br>
-                <input type="text" name="weight" required>
+                <input type="text" name="weight" value="{{ form_data.weight }}" required>
             </div>
             <div class="form group">
                 <label for="feet">Height (feet)</label><br>
-                <input type="number" name="feet" min="0" max="8" required>
+                <input type="number" name="feet" min="0" max="8" value="{{ form_data.feet }}" required>
             </div>
             <div class="form group">
                 <label for="inches">Height (inches)</label><br>
-                <input type="number" name="inches" min="0" max="11" required>
+                <input type="number" name="inches" min="0" max="11" value="{{ form_data.inches }}" required>
             </div>
-            <div class="form group">
-                <button class="btn" type="submit" name="submit">Calculate BMI</button>
+            <div class="form group button-group">
+                <button class="btn btn-calculate" type="submit" name="submit">Calculate BMI</button>
+                <button class="btn btn-reset" type="button" onclick="resetForm()">Reset</button>
             </div>
         </form>
         <div>
