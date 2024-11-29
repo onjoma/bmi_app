@@ -131,6 +131,32 @@ td {
   padding-bottom: 15px;
 }
 
+/* Alert messages */
+.alert {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.alert-error {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  border-left: 4px solid #DC2626;
+}
+
+.alert-warning {
+  background-color: #FEF3C7;
+  color: #D97706;
+  border-left: 4px solid #D97706;
+}
+
+.alert-success {
+  background-color: #ECFDF5;
+  color: #059669;
+  border-left: 4px solid #059669;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .inner-container {
