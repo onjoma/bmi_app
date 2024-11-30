@@ -22,35 +22,42 @@
         {% block content %}{% endblock %}
     </div>
     
-    <!-- JavaScript -->
     <script>
     // Prevent form resubmission on page refresh
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
 
-    // Function to reset the form and clear results
     function resetForm() {
-        // Reset all form inputs
-        document.querySelector('form').reset();
-        
-        // Clear any BMI result display
-        const bmiResult = document.querySelector('.bmi-form > div');
-        if (bmiResult) {
-            bmiResult.innerHTML = '';
+        // Reset form fields
+        const form = document.getElementById('bmi-form');
+        if (form) {
+            form.reset();
+            
+            // Explicitly clear input values
+            document.getElementById('weight').value = '';
+            document.getElementById('feet').value = '';
+            document.getElementById('inches').value = '';
         }
-        
-        // Clear any alert messages
-        const alerts = document.querySelectorAll('.alert');
-        alerts.forEach(alert => {
-            alert.remove();
+
+        // Remove any existing results or messages
+        const resultElements = document.querySelectorAll('.result, .alert');
+        resultElements.forEach(element => {
+            element.style.display = 'none';
         });
 
-        // Reset the form_data values by redirecting to the home page
-        window.location.href = '/';
-        
-        return false; // Prevent form submission
+        // Hide BMI info section if it exists
+        const bmiInfo = document.getElementById('bmiInfo');
+        if (bmiInfo) {
+            bmiInfo.style.display = 'none';
+        }
+
+        // Prevent form submission
+        return false;
     }
     </script>
+    
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

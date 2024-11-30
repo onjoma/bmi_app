@@ -1,0 +1,60 @@
+<!-- BMI Information Section -->
+<div class="bmi-info-container" id="bmiInfo" style="display: none;">
+    <div class="bmi-category-header">
+        <h3>Your BMI Category: <span class="category-name">{{ bmi_info.description }}</span></h3>
+        <p class="ideal-weight">Ideal Weight Range: <span>{{ bmi_info.ideal_weight_range }}</span></p>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'healthRisks')">Health Risks</button>
+        <button class="tab-button" onclick="openTab(event, 'nutritionTips')">Nutrition</button>
+        <button class="tab-button" onclick="openTab(event, 'exerciseTips')">Exercise</button>
+        <button class="tab-button" onclick="openTab(event, 'generalTips')">General Advice</button>
+    </div>
+
+    <!-- Health Risks Tab -->
+    <div id="healthRisks" class="tab-content active">
+        <h4>Potential Health Considerations</h4>
+        <ul class="risk-list">
+            {% for risk in bmi_info.risks %}
+            <li>{{ risk }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Nutrition Tips Tab -->
+    <div id="nutritionTips" class="tab-content">
+        <h4>Nutrition Recommendations</h4>
+        <ul class="recommendation-list">
+            {% for tip in bmi_info.recommendations.nutrition %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Exercise Tips Tab -->
+    <div id="exerciseTips" class="tab-content">
+        <h4>Exercise Recommendations</h4>
+        <ul class="recommendation-list">
+            {% for tip in bmi_info.recommendations.exercise %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- General Tips Tab -->
+    <div id="generalTips" class="tab-content">
+        <h4>General Recommendations</h4>
+        <ul class="recommendation-list">
+            {% for tip in bmi_info.recommendations.general %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="disclaimer">
+        <p><strong>Disclaimer:</strong> This information is for general guidance only and is not a substitute for professional medical advice. 
+        Always consult with healthcare professionals for personalized recommendations.</p>
+    </div>
+</div>

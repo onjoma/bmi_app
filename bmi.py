@@ -1,63 +1,50 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, flash
+from utils.bmi_data import get_bmi_info
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'  # Required for flash messages
 
-@app.route('/', methods=['POST', 'GET'])
-def bmi_calculate():
-    bmi = ""
-    # Initialize form data dictionary
-    form_data = {
-        'weight': '',
-        'feet': '',
-        'inches': ''
-    }
+@app.route('/', methods=['GET', 'POST'])
+def calculate_bmi():
+    bmi = None
+    bmi_info = None
+    feet = request.form.get('feet', '')
+    inches = request.form.get('inches', '')
+    weight = request.form.get('weight', '')
     
-    if request.method == 'POST' and 'weight' in request.form and 'feet' in request.form and 'inches' in request.form:
-        # Store the form data
-        form_data = {
-            'weight': request.form.get('weight'),
-            'feet': request.form.get('feet'),
-            'inches': request.form.get('inches')
-        }
-        
+    if request.method == 'POST':
         try:
-            weight_lbs = float(form_data['weight'])
-            height_feet = float(form_data['feet'])
-            height_inches = float(form_data['inches'])
+            # Convert inputs to appropriate types
+            feet = int(feet) if feet else None
+            inches = int(inches) if inches else 0
+            weight = float(weight) if weight else None
             
-            # Input validation
-            if weight_lbs <= 0:
-                flash('Please enter a valid weight greater than 0 pounds', 'error')
-                return render_template('index.html', form_data=form_data)
-            
-            if height_feet < 0 or height_inches < 0 or height_inches >= 12:
-                flash('Please enter a valid height. Inches should be between 0 and 11', 'error')
-                return render_template('index.html', form_data=form_data)
-            
-            if height_feet == 0 and height_inches == 0:
-                flash('Height cannot be zero', 'error')
-                return render_template('index.html', form_data=form_data)
-            
-            # Convert height to total inches (1 foot = 12 inches)
-            total_inches = (height_feet * 12) + height_inches
-            
-            # BMI formula for imperial units: (weight in pounds × 703) / (height in inches)²
-            bmi = round((weight_lbs * 703) / (total_inches ** 2), 2)
-            
-            # Validate BMI result
-            if bmi > 100:
-                flash('The calculated BMI seems unusually high. Please check your inputs', 'warning')
-            
+            # Validate inputs with specific range messages
+            if feet is None or weight is None:
+                flash('Please enter both height and weight values.', 'error')
+            elif weight <= 0 or weight > 1000:
+                flash('Weight must be between 1 and 1000 pounds.', 'error')
+            elif feet < 1 or feet > 8:
+                flash('Height (feet) must be between 1 and 8 feet.', 'error')
+            elif inches < 0 or inches >= 12:
+                flash('Height (inches) must be between 0 and 11 inches.', 'error')
+            else:
+                # Calculate BMI
+                height_inches = (feet * 12) + inches
+                bmi = round((weight / (height_inches ** 2)) * 703, 1)
+                
+                # Get BMI information and recommendations
+                bmi_info = get_bmi_info(bmi, feet, inches)
+                
         except ValueError:
-            flash('Please enter valid numbers for weight and height', 'error')
-            return render_template('index.html', form_data=form_data)
-        except ZeroDivisionError:
-            flash('Height cannot be zero', 'error')
-            return render_template('index.html', form_data=form_data)
-        
-    return render_template('index.html', bmi=bmi, form_data=form_data)
-
+            flash('Please enter valid numbers for height and weight.', 'error')
+    
+    return render_template('index.html', 
+                         bmi=bmi, 
+                         feet=feet, 
+                         inches=inches, 
+                         weight=weight,
+                         bmi_info=bmi_info)
 
 if __name__ == '__main__':
     app.run(debug=True)
